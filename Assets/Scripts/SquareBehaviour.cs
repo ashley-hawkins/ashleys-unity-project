@@ -28,7 +28,6 @@ public class SquareBehaviour : MonoBehaviour
         Debug.DrawRay(transform.position, Vector2.down * (collider.bounds.size.y / 2 + 0.1f));
         Debug.DrawRay(new Vector2(transform.position.x - 0.9f * collider.bounds.size.x / 2, transform.position.y), Vector2.down * (collider.bounds.size.y / 2 + 0.1f));
         Debug.DrawRay(new Vector2(transform.position.x + 0.9f * collider.bounds.size.x / 2, transform.position.y), Vector2.down * (collider.bounds.size.y / 2 + 0.1f));
-        //BrokenCode();
         ReadKeysAndMove();
         print(touchingPlatforms);
     }
@@ -68,37 +67,6 @@ public class SquareBehaviour : MonoBehaviour
         }
 
         rigidBody.AddForce(addedVelocity * 50000 * Time.deltaTime);
-    }
-    private void BrokenCode()
-    {
-        Camera cam = Camera.main;
-
-        Vector2 topRight = cam.ViewportToWorldPoint(Vector2.one);
-        Vector2 bottomLeft = cam.ViewportToWorldPoint(Vector2.zero);
-
-        var left_x_edge = transform.position.x - collider.bounds.size.x / 2;
-        var right_x_edge = transform.position.x + collider.bounds.size.x / 2;
-
-        var top_y_edge = transform.position.y + collider.bounds.size.y / 2;
-        var bottom_y_edge = transform.position.y - collider.bounds.size.y / 2;
-
-        print("topRight: " + topRight);
-        print("bottomLeft: " + bottomLeft);
-
-        print("left_x_edge: " + left_x_edge);
-        print("right_x_edge: " + right_x_edge);
-        print("top_y_edge: " + top_y_edge);
-        print("bottom_y_edge: " + bottom_y_edge);
-
-        if (left_x_edge <= bottomLeft.x || right_x_edge >= topRight.x)
-        {
-            velocity.x *= -1;
-        }
-        if (bottom_y_edge <= bottomLeft.y || top_y_edge >= topRight.y)
-        {
-            velocity.y *= -1;
-        }
-        gameObject.transform.position += (Vector3)velocity * Time.deltaTime;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
