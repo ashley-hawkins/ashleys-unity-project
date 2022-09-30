@@ -12,7 +12,7 @@ public class LogoBounceBehaviour : MonoBehaviour
     private Vector2 vel;
     private BoxCollider2D bCol;
 
-    // true if the DVD logo was in the corner on the last frame, always false on the first frame.
+    // true if the logo was in the corner on the last frame, always false on the first frame.
     private bool wasInCorner;
 
     // Start is called before the first frame update
