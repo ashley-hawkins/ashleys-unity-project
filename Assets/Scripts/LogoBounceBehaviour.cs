@@ -5,6 +5,7 @@ using UnityEngine;
 public class LogoBounceBehaviour : MonoBehaviour
 {
     // Speed metres per second in either direction
+    [Range(0.0f, Mathf.Infinity)]
     public float Speed = 1.0f;
     // Main camera
     private Camera cam;
